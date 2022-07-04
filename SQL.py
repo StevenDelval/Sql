@@ -22,9 +22,20 @@ for ligne in  curseur.fetchall() :
     print(ligne,end="\n")
 '''
 
-curseur.execute("""
+""" curseur.execute('''
                 SELECT Genre.Name,Track.Name,Milliseconds  from Track JOIN Genre ON Genre.GenreID = Track.GenreID  WHERE Milliseconds >=300000 and Genre.Name ="Rock";
-""" )
+''' )
 
 for ligne in  curseur.fetchall() :
+    print(ligne,end="\n") """
+
+curseur.execute("""
+                SELECT TrackId From PlaylistTrack
+                WHERE PlaylistId == "1"
+
+""" )
+count=0
+for ligne in  curseur.fetchall() :
     print(ligne,end="\n")
+    count +=1
+print(count)
