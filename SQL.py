@@ -30,8 +30,8 @@ for ligne in  curseur.fetchall() :
     print(ligne,end="\n") """
 
 curseur.execute("""
-                SELECT TrackId From PlaylistTrack
-                WHERE PlaylistId == "1"
+                SELECT PlaylistId,COUNT(TrackId) From PlaylistTrack
+                GROUP BY  PlaylistId
 
 """ )
 count=0
